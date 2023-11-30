@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Shop / Homepage";
+}
+
+<div class="d-flex h-100">
+    <div class="overflow-auto bg-body text-body-secondary border-end border-dark-subtle shadow-lg-hack-end">
+        @* GENRE *@
+        <div class="d-flex flex-column">
+            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">GENRE</p>
+            <a class="p-2">Strategy</a>
+            <a class="p-2">RPG</a>
+            <a class="p-2">Adventure</a>
+            <a class="mb-3 p-2">Action</a>
+        </div>
+        @* RELEASE YEAR *@
+        <div class="d-flex flex-column">
+            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">RELEASE YEAR</p>
+            <a class="p-2">2002</a>
+            <a class="p-2">2007</a>
+            <a class="p-2">2013</a>
+            <a class="p-2">2018</a>
+            <a class="mb-3 p-2">2023</a>
+        </div>
+        @* PRICE RANGE *@
+        <form class="d-flex flex-column" method="post">
+            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">PRICE RANGE</p>
+            <div>
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Min</span>
+                    <input class=" form-control border-secondary-subtle" name="min" placeholder="$1" />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Max</span>
+                    <input class=" form-control border-secondary-subtle" name="max" placeholder="$100" />
+                </div>
+            </div>
+        </form>
+        @* AGE RATING *@
+        <div class="d-flex flex-column">
+            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">AGE RATING</p>
+            <a class="p-2">Everyone</a>
+            <a class="p-2">Everyone +10</a>
+            <a class="p-2">Teen</a>
+            <a class="p-2">Mature</a>
+            <a class="mb-3 p-2">Rating Pending</a>
+        </div>
+        @* CONDITION *@
+        <div class="d-flex flex-column">
+            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">CONDITION</p>
+            <a class="p-2">New</a>
+            <a class="p-2">Excellent +10</a>
+            <a class="p-2">Good</a>
+            <a class="p-2">Bad</a>
+            <a class="mb-3 p-2">Open Box</a>
+        </div>
+    </div>
+    <div class="container w-100 mt-5">
+        <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
+        @* Search *@
+        <form class="d-flex flex-column align-items-center" method="post">
+            <div id="search" class="input-group mt-5">
+                <input class="form-control border-secondary-subtle" name="search" type="search" placeholder="Search Games..." />
+                <a class="input-group-text btn btn-lg btn-warning rounded-0 text-dark link-dark fw-bold border-secondary-subtle" href="/shop/post">CHECK</a>
+            </div>
+        </form>
+    </div>
+</div>

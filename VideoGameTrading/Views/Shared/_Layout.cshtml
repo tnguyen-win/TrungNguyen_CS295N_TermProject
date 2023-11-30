@@ -11,7 +11,7 @@
 <body class="bg-dark-subtle" data-bs-theme="dark">
     @* Navbar *@
     <header>
-        <nav class="navbar navbar-expand-lg border-bottom border-dark-subtle shadow-lg mb-5 mb-lg-0">
+        <nav class="navbar navbar-expand-lg border-bottom border-dark-subtle shadow-lg">
             <div class="container">
                 <a class="navbar-brand text-light fw-bold" href="/">VideoGameTrading</a>
                 <button class="navbar-toggler border-dark-subtle" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,19 +44,16 @@
                         </li>
                         @* Shop *@
                         <li class="nav-item">
-                            <a class="nav-link text-body-secondary" href="/shop">Shop</a>
+                            <a class="nav-link" href="/shop">Shop</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container my-5">
-        <main role="main" class="pb-3">@RenderBody()</main>
-    </div>
-
-    <footer class="footer text-center text-body-tertiary border-top border-dark-subtle shadow-lg-hack">
-        <div class="container">VideoGameTrading, &copy; 2023
+    <main role="main">@RenderBody()</main>
+    <footer class="d-flex align-items-center text-center text-body-tertiary border-top border-dark-subtle shadow-lg-hack-top">
+        <div class="container">VideoGameTrading, &copy; 2023</div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
