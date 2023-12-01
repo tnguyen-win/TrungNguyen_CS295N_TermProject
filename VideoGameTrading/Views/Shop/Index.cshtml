@@ -3,28 +3,77 @@
 }
 
 <div class="d-flex h-100">
-    <div class="overflow-auto bg-body text-body-secondary border-end border-dark-subtle shadow-lg-hack-end">
+    <form method="post" class="overflow-auto text-body-secondary border-end border-dark-subtle shadow-lg-hack-end">
         @* GENRE *@
-        <div class="d-flex flex-column">
-            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">GENRE</p>
-            <a class="p-2">Strategy</a>
-            <a class="p-2">RPG</a>
-            <a class="p-2">Adventure</a>
-            <a class="mb-3 p-2">Action</a>
+        <div class="d-flex flex-column text-start">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">GENRE</p>
+            <div class="p-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genre" id="genre1" checked>
+                    <label class="form-check-label" for="genre1">
+                        Strategy
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genre" id="genre2">
+                    <label class="form-check-label" for="genre2">
+                        RPG
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genre" id="genre3">
+                    <label class="form-check-label" for="genre3">
+                        Adventure
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="genre" id="genre4">
+                    <label class="form-check-label" for="genre4">
+                        Action
+                    </label>
+                </div>
+            </div>
         </div>
         @* RELEASE YEAR *@
-        <div class="d-flex flex-column">
-            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">RELEASE YEAR</p>
-            <a class="p-2">2002</a>
-            <a class="p-2">2007</a>
-            <a class="p-2">2013</a>
-            <a class="p-2">2018</a>
-            <a class="mb-3 p-2">2023</a>
+        <div class="d-flex flex-column text-start">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">RELEASE YEAR</p>
+            <div class="p-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear1" checked>
+                    <label class="form-check-label" for="releaseYear1">
+                        2002
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear2">
+                    <label class="form-check-label" for="releaseYear2">
+                        2007
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear3">
+                    <label class="form-check-label" for="releaseYear3">
+                        2013
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear4">
+                    <label class="form-check-label" for="releaseYear4">
+                        2018
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear5">
+                    <label class="form-check-label" for="genre4releaseYear5">
+                        2023
+                    </label>
+                </div>
+            </div>
         </div>
         @* PRICE RANGE *@
-        <form class="d-flex flex-column" method="post">
-            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">PRICE RANGE</p>
-            <div>
+        <div class="d-flex flex-column">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">PRICE RANGE</p>
+            <div class="p-2">
                 <div class="input-group">
                     <span class="input-group-text border-secondary-subtle">Min</span>
                     <input class=" form-control border-secondary-subtle" name="min" placeholder="$1" />
@@ -34,34 +83,86 @@
                     <input class=" form-control border-secondary-subtle" name="max" placeholder="$100" />
                 </div>
             </div>
-        </form>
-        @* AGE RATING *@
-        <div class="d-flex flex-column">
-            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">AGE RATING</p>
-            <a class="p-2">Everyone</a>
-            <a class="p-2">Everyone +10</a>
-            <a class="p-2">Teen</a>
-            <a class="p-2">Mature</a>
-            <a class="mb-3 p-2">Rating Pending</a>
         </div>
-        @* CONDITION *@
-        <div class="d-flex flex-column">
-            <p class="bg-body-secondary fw-bold shadow-lg mb-0 p-2">CONDITION</p>
-            <a class="p-2">New</a>
-            <a class="p-2">Excellent +10</a>
-            <a class="p-2">Good</a>
-            <a class="p-2">Bad</a>
-            <a class="mb-3 p-2">Open Box</a>
+        <div class="d-flex flex-column text-start">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">AGE RATING</p>
+            <div class="p-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating1" checked>
+                    <label class="form-check-label" for="ageRating1">
+                        Everyone
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating2">
+                    <label class="form-check-label" for="ageRating2">
+                        Everyone +10
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating3">
+                    <label class="form-check-label" for="ageRating3">
+                        Teen
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating4">
+                    <label class="form-check-label" for="ageRating4">
+                        Mature
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating5">
+                    <label class="form-check-label" for="ageRating5">
+                        Rating Pending
+                    </label>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container w-100 mt-5">
+        <div class="d-flex flex-column text-start">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">CONDITION</p>
+            <div class="p-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="condition" id="condition1" checked>
+                    <label class="form-check-label" for="condition1">
+                        New
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="condition" id="condition2">
+                    <label class="form-check-label" for="condition2">
+                        Excellent +10
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="condition" id="condition3">
+                    <label class="form-check-label" for="condition3">
+                        Good
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="condition" id="condition4">
+                    <label class="form-check-label" for="condition4">
+                        Bad
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="condition" id="condition5">
+                    <label class="form-check-label" for="condition5">
+                        Open Box
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form class="container w-100 mt-5">
         <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
         @* Search *@
-        <form class="d-flex flex-column align-items-center" method="post">
+        <div class="d-flex flex-column align-items-center">
             <div id="search" class="input-group mt-5">
                 <input class="form-control border-secondary-subtle" name="search" type="search" placeholder="Search Games..." />
-                <a class="input-group-text btn btn-lg btn-warning rounded-0 text-dark link-dark fw-bold border-secondary-subtle" href="/shop/post">CHECK</a>
+                <button class="input-group-text btn btn-lg btn-warning rounded-0 text-dark link-dark fw-bold border-secondary-subtle" type="submit">CHECK</button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
