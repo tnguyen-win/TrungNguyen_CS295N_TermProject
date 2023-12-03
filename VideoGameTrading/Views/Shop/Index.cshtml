@@ -163,7 +163,7 @@
         @* Search *@
         <div class="d-flex flex-column align-items-center container mb-5">
             <div class="d-flex flex-column gap-3 ms-auto">
-                <a class="btn btn-lg btn-secondary rounded-0 fw-bold" href="/shop">RESET FILTERS</a>
+                <button class="btn btn-lg btn-secondary rounded-0 fw-bold" type="reset">RESET FILTERS</button>
                 <a class="btn btn-lg btn-warning rounded-0 text-dark fw-bold" href="/shop/create">CREATE PRODUCT</a>
             </div>
             <div id="search" class="input-group mt-5">
@@ -175,7 +175,7 @@
         <div class="row row-cols-1 row-cols-lg-3 g-4 container mt-5 mx-auto">
             @if (@Model != null) {
                 @foreach (var item in Model) {
-                    <partial name="~/Views/Shop/Card.cshtml" model="new Item {
+                    <partial name="~/views/shop/card.cshtml" model="new Item {
                         InCart = item.InCart,
                         Title = item.Title,
                         ItemId = item.ItemId,

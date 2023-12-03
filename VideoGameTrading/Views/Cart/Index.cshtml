@@ -1,6 +1,6 @@
 ﻿@model List<Item>
 @{
-    ViewData["Title"] = "Shop / Cart";
+    ViewData["Title"] = "Cart / Homepage";
     string products = "";
     double subTotal = 0.0d;
 }
@@ -13,9 +13,10 @@
             <div class="row row-cols-1 row-cols-lg-3 g-4 container my-5">
                 @foreach (var item in Model) {
                     products += $"Product {item.ItemId} - ${item.Price.ToString()}\n\n";
+                    products += item.Equals(Model.Last()) ? "====================" : "+\n\n";
                     subTotal = subTotal + item.Price;
 
-                    <partial name="~/Views/Shop/Card.cshtml" model="new Item {
+                    <partial name="~/views/shop/card.cshtml" model="new Item {
                         InCart = item.InCart,
                         Title = item.Title,
                         ItemId = item.ItemId,

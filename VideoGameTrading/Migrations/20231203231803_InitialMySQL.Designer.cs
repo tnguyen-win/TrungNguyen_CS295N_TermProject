@@ -11,7 +11,7 @@ using VideoGameTrading.Data;
 namespace VideoGameTrading.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231203061727_InitialMySQL")]
+    [Migration("20231203231803_InitialMySQL")]
     partial class InitialMySQL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

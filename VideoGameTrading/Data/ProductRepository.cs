@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace VideoGameTrading.Data {
-    public class RegistryRepository : IRegistryRepository {
+    public class ProductRepository : IProductRepository {
         readonly AppDbContext context;
-        public RegistryRepository(AppDbContext c) => context = c;
+        public ProductRepository(AppDbContext c) => context = c;
 
         public Item GetItemById(int id) => throw new NotImplementedException();
 
@@ -21,5 +21,11 @@ namespace VideoGameTrading.Data {
 
             return context.SaveChanges();
         }
+
+        //public int UpdateItem(Item item) {
+        //    context.Update(item);
+
+        //    return context.SaveChanges();
+        //}
     }
 }

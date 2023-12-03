@@ -8,9 +8,9 @@ using System.Diagnostics.Tracing;
 
 namespace VideoGameTrading.Controllers {
     public class ShopController : Controller {
-        readonly IRegistryRepository repository;
+        readonly IProductRepository repository;
 
-        public ShopController(IRegistryRepository r) => repository = r;
+        public ShopController(IProductRepository r) => repository = r;
 
         // Homepage
 
@@ -22,22 +22,23 @@ namespace VideoGameTrading.Controllers {
         }
 
         //[HttpPost]
+        //public IActionResult Index(Item model) {
+        //    //Console.WriteLine("\n\n\n\nABC\n\n\n\n");
+        //    model.InCart = true;
+
+        //    repository.UpdateItem(model);
+
+        //    List<Item> items = (from m in repository.GetItems() select m).ToList();
+
+        //    return View("~/views/cart/index.cshtml", items);
+        //}
+
+        //[HttpPost]
         //public IActionResult Index(string title) {
         //    List<Item> items = (from m in repository.GetItems() select m).ToList();
 
-        //    return View("Index", items);
+        //    return View("index", items);
         //}
-
-        // Cart
-
-        [HttpGet]
-        public IActionResult Cart() {
-            List<Item> items = (from m in repository.GetItems()
-                                where m.InCart == true
-                                select m).ToList();
-
-            return View(items);
-        }
 
         // Product
 
@@ -79,13 +80,6 @@ namespace VideoGameTrading.Controllers {
 
             return RedirectToAction("index", new { model.ItemId });
         }
-
-        // Card
-
-        //[HttpPut]
-        //public IActionResult Card(Item model) {
-        //    return RedirectToAction("shop");
-        //}
 
         // Error
 

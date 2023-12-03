@@ -1,7 +1,8 @@
-﻿using VideoGameTrading.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using VideoGameTrading.Models;
 
 namespace VideoGameTrading.Data {
-    public class FakeRegistryRepository : IRegistryRepository {
+    public class FakeProductRepository : IProductRepository {
         readonly List<Item> items = new();
 
         public Item GetItemById(int id) => throw new NotImplementedException();
@@ -14,5 +15,11 @@ namespace VideoGameTrading.Data {
 
             return item.ItemId;
         }
+
+        //public int UpdateItem(Item item) {
+        //    items[item.ItemId - 1].InCart = item.InCart;
+
+        //    return item.InCart;
+        //}
     }
 }

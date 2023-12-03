@@ -4,6 +4,8 @@
 
     <div class="container my-5">
         <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
-        <partial name="~/Views/Shop/Card.cshtml" model="@Model" />
+        <partial name="~/views/shop/card.cshtml" model="@Model" />
     </div>
-} else @Html.Partial("~/Views/Shop/Error.cshtml")
+} else {
+    <partial name="~/views/shop/error.cshtml" />
+}
