@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home / Sitemap";
 }
 
-<div class="container mt-5">
+<div class="vh-100 container my-5">
     <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
     <ul class="text-body-secondary">
         <li>
@@ -10,18 +10,18 @@
             <ul>
                 <li><strong>Homepage:</strong> A default landing page for site visitors.</li>
                 <li><strong>Privacy:</strong> Displays privacy disclaimers.</li>
-                <li><strong>Sitemap:</strong> A page that provides descriptions and links to each of the site webpages.</li>
+                <li><strong>Sitemap:</strong> A page that provides descriptions for each of the site's pages.</li>
             </ul>
         </li>
         <li>
             <strong>Shop</strong>
             <ul>
-                <li><strong>Homepage:</strong> Displays product search results.</li>
-                <ul>
-                    <li><strong>ProductItem:</strong> Product component.</li>
-                    <li><strong>ProductView:</strong> View individual products.</li>
-                    <li><strong>Cart:</strong> Any products that have been added to your virtual cart.</li>
-                </ul>
+                <li><strong>Homepage:</strong> Displays all products, search results, and search filters.</li>
+                <li><strong>Cart:</strong> Displays a collection of products that have been saved to your virtual cart.</li>
+                <li><strong>Product:</strong> Allows the viewing of a single product.</li>
+                <li><strong>Add:</strong> Displays form fields to create a new product.</li>
+                <li><strong>Card:</strong> Product component.</li>
+                <li><strong>Error:</strong> 404 page for products route specially.</li>
             </ul>
         </li>
     </ul>

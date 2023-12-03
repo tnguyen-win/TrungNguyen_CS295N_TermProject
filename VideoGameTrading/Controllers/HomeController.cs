@@ -6,7 +6,7 @@ namespace VideoGameTrading.Controllers {
     public class HomeController : Controller {
         public IActionResult Index() => View();
 
-        public IActionResult Sitemap() => View();
+        public IActionResult SiteMap() => View();
 
         public IActionResult Privacy() => View();
 

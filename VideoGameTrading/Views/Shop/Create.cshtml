@@ -1,0 +1,68 @@
+﻿@model Item
+@{
+    ViewData["Title"] = "Shop / Create";
+}
+
+<div class="container my-5">
+    <h6 class="display-4 fw-bold mb-5">@ViewData["Title"]</h6>
+    <form method="post">
+        @* Title *@
+        <div>
+            <label class="fw-bold mb-3" for="title">Game title</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Title</span>
+                <input id="title" class="form-control border-secondary-subtle" name="Title" />
+            </div>
+        </div>
+        @* Genre *@
+        <div class="my-4">
+            <label class="fw-bold mb-3" for="genre">Game genre</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Genre</span>
+                <input id="genre" class="form-control border-secondary-subtle" name="Genre" />
+            </div>
+        </div>
+        @* Release Year *@
+        <div class="mb-4">
+            <label class="fw-bold mb-3" for="releaseYear">The year the game was released</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Release Year</span>
+                <input id="releaseYear" class="form-control border-secondary-subtle" name="ReleaseYear" />
+            </div>
+        </div>
+        @* Age Range *@
+        <div class="mb-4">
+            <label class="fw-bold mb-3" for="ageRange">Recommended age minimum for this game</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Age Range</span>
+                <input id="ageRange" class="form-control border-secondary-subtle" name="AgeRange" />
+            </div>
+        </div>
+        @* Price *@
+        <div class="mb-4">
+            <label class="fw-bold mb-3" for="price">The assigned rent price for this game</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Price</span>
+                <input id="price" class="form-control border-secondary-subtle" name="Price" />
+            </div>
+        </div>
+        @* Condition *@
+        <div class="my-4">
+            <label class="fw-bold mb-3" for="ageRange">Physical condition of the game</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Age Range</span>
+                <input id="ageRange" class="form-control border-secondary-subtle" name="AgeRange" />
+            </div>
+        </div>
+        @* Author *@
+        <div class="mb-4">
+            <label class="fw-bold mb-3" for="author">Current owner of the game</label>
+            <div class="input-group">
+                <span class="input-group-text border-secondary-subtle">Author</span>
+                <input id="author" class="form-control border-secondary-subtle" name="From.Name" />
+            </div>
+        </div>
+        @* Submit *@
+        <input class="btn btn-lg btn-warning rounded-0 text-dark fw-bold" type="submit" value="SUBMIT" />
+    </form>
+</div>

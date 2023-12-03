@@ -34,7 +34,7 @@
                                 </li>
                                 @* Sitemap *@
                                 <li>
-                                    <a class="dropdown-item text-body-secondary border-top border-dark-subtle" href="/home/sitemap">Sitemap</a>
+                                    <a class="dropdown-item text-body-secondary border-top border-dark-subtle" href="/home/sitemap">SiteMap</a>
                                 </li>
                                 @* Privacy *@
                                 <li>
@@ -68,6 +68,13 @@
     </header>
     <main role="main">@RenderBody()</main>
     <footer class="d-flex align-items-center text-center text-body-tertiary border-top border-dark-subtle shadow-lg-hack-top p-4">
+        <div id="buttonScrollToTop" class="z-2 invisible d-flex flex-row-reverse fixed-bottom m-5">
+            <button class="btn btn-lg btn-warning rounded-0 border border-dark-subtle shadow-lg" onclick="scrollToTop();">
+                <svg class="my-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                </svg>
+            </button>
+        </div>
         <div class="container">VideoGameTrading, &copy; 2023</div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>

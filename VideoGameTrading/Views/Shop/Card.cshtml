@@ -1,0 +1,22 @@
+﻿<div class="col">
+    <div class="card h-100 text-light border border-secondary-subtle shadow-lg">
+        <p class="bg-light-subtle text-body-secondary fw-bold shadow-lg text-center mb-0 p-3">@Model.Title</p>
+        <div class="d-flex flex-column text-start m-3 mb-3">
+            @* PRODUCT ID *@
+            <small><strong>ID</strong>: @Model.ItemId</small>
+            @* GENRE *@
+            <small><strong>GENRE</strong>: @Model.Genre</small>
+            @* RELEASE YEAR *@
+            <small><strong>RELEASE YEAR</strong>: @Model.ReleaseYear</small>
+            @* PRICE *@
+            <small><strong>PRICE</strong>: @Model.Price</small>
+            @* AGE RATING *@
+            <small><strong>AGE RATING</strong>: @Model.AgeRange</small>
+            @* CONDITION *@
+            <small><strong>CONDITION</strong>: @Model.Condition</small>
+            @* FROM *@
+            <small><strong>FROM</strong>: @Model.From.Name</small>
+            <a class="btn btn-warning rounded-0 text-dark fw-bold mt-3" href="/shop/product/@Model.ItemId">VIEW</a>
+        </div>
+    </div>
+</div>

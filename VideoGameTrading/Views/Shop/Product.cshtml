@@ -1,7 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Shop / Product";
-}
+﻿@model Item
+@if (@Model != null) {
+    ViewData["Title"] = $"Shop / Product / {@Model.ItemId}";
 
-<div class="container mt-5">
-    <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
-</div>
+    <div class="container my-5">
+        <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
+        <partial name="~/Views/Shop/Card.cshtml" model="@Model" />
+    </div>
+} else @Html.Partial("~/Views/Shop/Error.cshtml")

@@ -1,9 +1,10 @@
-﻿@{
+﻿@model List<Item>
+@{
     ViewData["Title"] = "Shop / Homepage";
 }
 
 <div class="d-flex h-100">
-    <form method="post" class="overflow-auto text-body-secondary border-end border-dark-subtle shadow-lg-hack-end">
+    <form class="border-end border-dark-subtle shadow-lg-hack-end" method="post">
         @* GENRE *@
         <div class="d-flex flex-column text-start">
             <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">GENRE</p>
@@ -84,6 +85,7 @@
                 </div>
             </div>
         </div>
+        @* AGE RATING *@
         <div class="d-flex flex-column text-start">
             <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">AGE RATING</p>
             <div class="p-2">
@@ -119,6 +121,7 @@
                 </div>
             </div>
         </div>
+        @* CONDITION *@
         <div class="d-flex flex-column text-start">
             <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">CONDITION</p>
             <div class="p-2">
@@ -155,14 +158,34 @@
             </div>
         </div>
     </form>
-    <form class="container w-100 mt-5">
-        <h6 class="display-6 fw-bold mb-5">@ViewData["Title"]</h6>
+    <form class="overflow-auto w-100 my-5" method="post">
+        <h6 class="display-6 fw-bold container mb-5">@ViewData["Title"]</h6>
         @* Search *@
-        <div class="d-flex flex-column align-items-center">
-            <div id="search" class="input-group mt-5">
-                <input class="form-control border-secondary-subtle" name="search" type="search" placeholder="Search Games..." />
-                <button class="input-group-text btn btn-lg btn-warning rounded-0 text-dark link-dark fw-bold border-secondary-subtle" type="submit">CHECK</button>
+        <div class="d-flex flex-column align-items-center container mb-5">
+            <div class="d-flex flex-column gap-3 ms-auto">
+                <a class="btn btn-lg btn-warning rounded-0 text-dark fw-bold" href="/shop/create">CREATE PRODUCT</a>
+                <a class="btn btn-lg btn-secondary rounded-0 text-dark fw-bold" href="/shop">RESET FILTERS</a>
             </div>
+            <div id="search" class="input-group mt-5">
+                <input class="form-control border-secondary-subtle" name="search" type="search" placeholder="Search games by title..." />
+                <button class="input-group-text btn btn-lg btn-warning rounded-0 text-dark fw-bold" type="submit">SEARCH</button>
+            </div>
+        </div>
+        @* Products *@
+        <div class="row row-cols-1 row-cols-lg-3 g-4 container mt-5 mx-auto">
+            @if (@Model != null) {
+                @foreach (var item in Model) {
+                    <partial name="~/Views/Shop/Card.cshtml" model="new Item {
+                        Title = item.Title,
+                        ItemId = item.ItemId,
+                        ReleaseYear = @item.ReleaseYear,
+                        Price =  @item.Price,
+                        AgeRange = @item.AgeRange,
+                        Condition = @item.Condition,
+                        From = @item.From
+                    }" />
+                }
+            }
         </div>
     </form>
 </div>
