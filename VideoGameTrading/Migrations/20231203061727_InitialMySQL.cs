@@ -34,17 +34,17 @@ namespace VideoGameTrading.Migrations
                     ItemId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     InCart = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    Title = table.Column<string>(type: "longtext", nullable: false)
+                    Title = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Genre = table.Column<string>(type: "longtext", nullable: false)
+                    Genre = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ReleaseYear = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<double>(type: "double", nullable: false),
-                    AgeRange = table.Column<string>(type: "longtext", nullable: false)
+                    AgeRange = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Condition = table.Column<string>(type: "longtext", nullable: false)
+                    Condition = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    FromAppUserId = table.Column<int>(type: "int", nullable: false)
+                    FromAppUserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,8 +53,7 @@ namespace VideoGameTrading.Migrations
                         name: "FK_Items_Users_FromAppUserId",
                         column: x => x.FromAppUserId,
                         principalTable: "Users",
-                        principalColumn: "AppUserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AppUserId");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 

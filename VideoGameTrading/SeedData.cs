@@ -17,24 +17,24 @@ namespace VideoGameTrading {
 
                 var item1 = new Item {
                     From = user2,
-                    Title = "This is a test product",
-                    Genre = "This is a test genre",
+                    Title = "A test title",
+                    Genre = "Strategy",
                     ReleaseYear = 2001,
                     Price = Math.Round((double)(1 + (rnd1.NextDouble() * (100 - 1))), 2),
-                    AgeRange = "This is a test age range",
-                    Condition = "This is a test condition"
+                    AgeRange = "Everyone",
+                    Condition = "New"
                 };
 
                 context.Items.Add(item1);
 
                 var item2 = new Item {
                     From = user1,
-                    Title = "This is another test product",
-                    Genre = "This is another test genre",
+                    Title = "Another test title",
+                    Genre = "RPG",
                     ReleaseYear = 2017,
                     Price = Math.Round((double)(1 + (rnd2.NextDouble() * (100 - 1))), 2),
-                    AgeRange = "This is another test age range",
-                    Condition = "This is another test condition"
+                    AgeRange = "Everyone +10",
+                    Condition = "TExcellent"
                 };
 
                 context.Items.Add(item2);

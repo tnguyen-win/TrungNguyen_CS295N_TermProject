@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using static System.Net.Mime.MediaTypeNames;
 using System.Diagnostics;
+using System.Diagnostics.Tracing;
 
 namespace VideoGameTrading.Controllers {
     public class ShopController : Controller {
@@ -29,7 +30,14 @@ namespace VideoGameTrading.Controllers {
 
         // Cart
 
-        public IActionResult Cart() => View();
+        [HttpGet]
+        public IActionResult Cart() {
+            List<Item> items = (from m in repository.GetItems()
+                                where m.InCart == true
+                                select m).ToList();
+
+            return View(items);
+        }
 
         // Product
 
@@ -40,9 +48,9 @@ namespace VideoGameTrading.Controllers {
             List<Item> items = (from m in repository.GetItems() select m).ToList();
 
             try {
-                return View("Product", items[id - 1]);
+                return View("product", items[id - 1]);
             } catch {
-                return View("Error");
+                return View("error");
             }
         }
 
@@ -69,8 +77,15 @@ namespace VideoGameTrading.Controllers {
 
             repository.StoreItem(model);
 
-            return RedirectToAction("Index", new { model.ItemId });
+            return RedirectToAction("index", new { model.ItemId });
         }
+
+        // Card
+
+        //[HttpPut]
+        //public IActionResult Card(Item model) {
+        //    return RedirectToAction("shop");
+        //}
 
         // Error
 
