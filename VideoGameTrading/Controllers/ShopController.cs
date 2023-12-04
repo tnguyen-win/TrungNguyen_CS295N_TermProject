@@ -5,6 +5,7 @@ using System;
 using static System.Net.Mime.MediaTypeNames;
 using System.Diagnostics;
 using System.Diagnostics.Tracing;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace VideoGameTrading.Controllers {
     public class ShopController : Controller {
@@ -73,12 +74,13 @@ namespace VideoGameTrading.Controllers {
             model.From.Name ??= "John Smith";
 
             // Originals
+            model.ItemId = repository.GetItems().Count + 1;
             model.InCart = false;
             model.Price = Math.Round((double)(1 + (rnd.NextDouble() * (100 - 1))), 2);
 
             repository.StoreItem(model);
 
-            return RedirectToAction("index", new { model.ItemId });
+            return RedirectToAction("index");
         }
 
         // Error

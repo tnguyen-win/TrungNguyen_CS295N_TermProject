@@ -10,7 +10,6 @@ namespace VideoGameTrading.Data {
         public List<Item> GetItems() => throw new NotImplementedException();
 
         public int StoreItem(Item item) {
-            item.ItemId = items.Count + 1;
             items.Add(item);
 
             return item.ItemId;

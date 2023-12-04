@@ -21,12 +21,11 @@ namespace VideoGameTrading.Migrations
 
             modelBuilder.Entity("VideoGameTrading.Models.AppUser", b =>
                 {
-                    b.Property<int>("AppUserId")
+                    b.Property<int?>("AppUserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("AppUserId");
