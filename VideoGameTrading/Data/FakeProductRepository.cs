@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using VideoGameTrading.Models;
+﻿using VideoGameTrading.Models;
 
 namespace VideoGameTrading.Data {
     public class FakeProductRepository : IProductRepository {

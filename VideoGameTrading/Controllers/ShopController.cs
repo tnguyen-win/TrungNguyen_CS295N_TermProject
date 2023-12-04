@@ -19,8 +19,6 @@ namespace VideoGameTrading.Controllers {
 
         [HttpPost]
         public IActionResult Index(string search, string genre, int releaseYearMin, int releaseYearMax, int priceMin, int priceMax, string ageRange, string condition) {
-            Console.WriteLine($"\n\n\n\n{search}\n\n\n\n");
-
             List<Item> items = (from i in repository.GetItems() select i).ToList();
 
             var matchSearch = false;
@@ -31,63 +29,93 @@ namespace VideoGameTrading.Controllers {
             var matchCondition = false;
 
             foreach (var i in repository.GetItems()) {
-                if (i.Title == search) matchSearch = true;
-                if (i.Genre == genre) matchGenre = true;
-                if (i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax) matchReleaseYear = true;
-                if (i.Price >= priceMin & i.Price <= priceMax) matchPrice = true;
-                if (i.AgeRange == ageRange) matchAgeRange = true;
-                if (i.Condition == condition) matchCondition = true;
+                if (i.Title == search) {
+                    items.Clear();
+                    matchSearch = true;
+                }
+                if (i.Genre == genre) {
+                    items.Clear();
+                    matchGenre = true;
+                }
+                if (i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax) {
+                    items.Clear();
+                    matchReleaseYear = true;
+                }
+                if (i.Price >= priceMin & i.Price <= priceMax) {
+                    items.Clear();
+                    matchPrice = true;
+                }
+                if (i.AgeRange == ageRange) {
+                    items.Clear();
+                    matchAgeRange = true;
+                }
+                if (i.Condition == condition) {
+                    items.Clear();
+                    matchCondition = true;
+                }
             }
 
             // Search
 
             if (matchSearch) {
-                items = (from i in repository.GetItems()
+                var ITEMS = (from i in repository.GetItems()
                          where i.Title == search
                          select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
             }
 
             // Genre
 
             if (matchGenre) {
-                items = (from i in repository.GetItems()
-                         where i.Genre == genre
-                         select i).ToList();
+                var ITEMS = (from i in repository.GetItems()
+                             where i.Genre == genre
+                             select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
             }
 
             // Release Year
 
             if (matchReleaseYear) {
-                items = (from i in repository.GetItems()
+                var ITEMS = (from i in repository.GetItems()
                          where i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax
                          select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
             }
 
             // Price
 
             if (matchPrice) {
-                items = (from i in repository.GetItems()
+                var ITEMS = (from i in repository.GetItems()
                          where i.Price >= priceMin & i.Price <= priceMax
                          select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
             }
 
             // Age Range
 
             if (matchAgeRange) {
-                items = (from i in repository.GetItems()
+                var ITEMS = (from i in repository.GetItems()
                          where i.AgeRange == ageRange
                          select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
             }
 
             // Condition
 
             if (matchCondition) {
-                items = (from i in repository.GetItems()
-                         where i.Condition == condition
-                         select i).ToList();
+                var ITEMS = (from i in repository.GetItems()
+                             where i.Condition == condition
+                             select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
             }
 
-            return View("index", items);
+            return View("index", items.OrderBy(i => i.ItemId).ToList());
         }
 
         // Product

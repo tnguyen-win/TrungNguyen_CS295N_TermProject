@@ -1,5 +1,4 @@
 ﻿using VideoGameTrading.Models;
-using System.Net.Http.Headers;
 
 namespace VideoGameTrading.Data {
     public interface IProductRepository {
