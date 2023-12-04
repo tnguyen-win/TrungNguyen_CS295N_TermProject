@@ -14,11 +14,5 @@ namespace VideoGameTrading.Data {
 
             return item.ItemId;
         }
-
-        //public int UpdateItem(Item item) {
-        //    items[item.ItemId - 1].InCart = item.InCart;
-
-        //    return item.InCart;
-        //}
     }
 }

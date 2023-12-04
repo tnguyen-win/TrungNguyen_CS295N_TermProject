@@ -8,7 +8,5 @@ namespace VideoGameTrading.Data {
         public Item GetItemById(int id);
 
         public int StoreItem(Item item);
-
-        //public int UpdateItem(Item item);
     }
 }

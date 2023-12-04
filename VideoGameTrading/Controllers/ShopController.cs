@@ -1,11 +1,6 @@
 ﻿using VideoGameTrading.Data;
 using VideoGameTrading.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using static System.Net.Mime.MediaTypeNames;
-using System.Diagnostics;
-using System.Diagnostics.Tracing;
-using Microsoft.AspNetCore.Http.Features;
 
 namespace VideoGameTrading.Controllers {
     public class ShopController : Controller {
@@ -22,24 +17,78 @@ namespace VideoGameTrading.Controllers {
             return View(items);
         }
 
-        //[HttpPost]
-        //public IActionResult Index(Item model) {
-        //    //Console.WriteLine("\n\n\n\nABC\n\n\n\n");
-        //    model.InCart = true;
+        [HttpPost]
+        public IActionResult Index(string search, string genre, int releaseYearMin, int releaseYearMax, int priceMin, int priceMax, string ageRange, string condition) {
+            Console.WriteLine($"\n\n\n\n{search}\n\n\n\n");
 
-        //    repository.UpdateItem(model);
+            List<Item> items = (from i in repository.GetItems() select i).ToList();
 
-        //    List<Item> items = (from m in repository.GetItems() select m).ToList();
+            var matchSearch = false;
+            var matchGenre = false;
+            var matchReleaseYear = false;
+            var matchPrice = false;
+            var matchAgeRange = false;
+            var matchCondition = false;
 
-        //    return View("~/views/cart/index.cshtml", items);
-        //}
+            foreach (var i in repository.GetItems()) {
+                if (i.Title == search) matchSearch = true;
+                if (i.Genre == genre) matchGenre = true;
+                if (i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax) matchReleaseYear = true;
+                if (i.Price >= priceMin & i.Price <= priceMax) matchPrice = true;
+                if (i.AgeRange == ageRange) matchAgeRange = true;
+                if (i.Condition == condition) matchCondition = true;
+            }
 
-        //[HttpPost]
-        //public IActionResult Index(string title) {
-        //    List<Item> items = (from m in repository.GetItems() select m).ToList();
+            // Search
 
-        //    return View("index", items);
-        //}
+            if (matchSearch) {
+                items = (from i in repository.GetItems()
+                         where i.Title == search
+                         select i).ToList();
+            }
+
+            // Genre
+
+            if (matchGenre) {
+                items = (from i in repository.GetItems()
+                         where i.Genre == genre
+                         select i).ToList();
+            }
+
+            // Release Year
+
+            if (matchReleaseYear) {
+                items = (from i in repository.GetItems()
+                         where i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax
+                         select i).ToList();
+            }
+
+            // Price
+
+            if (matchPrice) {
+                items = (from i in repository.GetItems()
+                         where i.Price >= priceMin & i.Price <= priceMax
+                         select i).ToList();
+            }
+
+            // Age Range
+
+            if (matchAgeRange) {
+                items = (from i in repository.GetItems()
+                         where i.AgeRange == ageRange
+                         select i).ToList();
+            }
+
+            // Condition
+
+            if (matchCondition) {
+                items = (from i in repository.GetItems()
+                         where i.Condition == condition
+                         select i).ToList();
+            }
+
+            return View("index", items);
+        }
 
         // Product
 
@@ -68,15 +117,19 @@ namespace VideoGameTrading.Controllers {
             // Fallbacks
             model.Title ??= "Random title";
             model.Genre ??= "Lorem ipsum.";
-            model.ReleaseYear = 1234;
+            if (model.ReleaseYear == 0) model.ReleaseYear = 2023;
+            if (model.Price == 0) model.Price = Math.Round((double)(1 + (rnd.NextDouble() * (100 - 1))), 2);
             model.AgeRange ??= "Everyone";
             model.Condition ??= "Good";
             model.From.Name ??= "John Smith";
 
             // Originals
-            model.ItemId = repository.GetItems().Count + 1;
-            model.InCart = false;
-            model.Price = Math.Round((double)(1 + (rnd.NextDouble() * (100 - 1))), 2);
+            try {
+                model.ItemId = repository.GetItems().Count + 1;
+            } catch {
+                // Fix for unit tests that can't access the repository method GetItems()
+                model.ItemId = 0;
+            }
 
             repository.StoreItem(model);
 

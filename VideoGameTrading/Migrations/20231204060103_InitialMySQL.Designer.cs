@@ -11,7 +11,7 @@ using VideoGameTrading.Data;
 namespace VideoGameTrading.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231204001204_InitialMySQL")]
+    [Migration("20231204060103_InitialMySQL")]
     partial class InitialMySQL
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,11 +23,12 @@ namespace VideoGameTrading.Migrations
 
             modelBuilder.Entity("VideoGameTrading.Models.AppUser", b =>
                 {
-                    b.Property<int?>("AppUserId")
+                    b.Property<int>("AppUserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("AppUserId");

@@ -3,171 +3,77 @@
     ViewData["Title"] = "Shop / Homepage";
 }
 
-<div class="d-flex h-100">
-    <form class="border-end border-dark-subtle shadow-lg-hack-end" method="post">
+<form class="d-flex h-100" method="post">
+    <div class="overflow-auto border-end border-dark-subtle shadow-lg-hack-end" method="post">
         @* GENRE *@
-        <div class="d-flex flex-column text-start">
+        <div class="d-flex flex-column">
             <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">GENRE</p>
             <div class="p-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genre" id="genre1" checked>
-                    <label class="form-check-label" for="genre1">
-                        Strategy
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genre" id="genre2">
-                    <label class="form-check-label" for="genre2">
-                        RPG
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genre" id="genre3">
-                    <label class="form-check-label" for="genre3">
-                        Adventure
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="genre" id="genre4">
-                    <label class="form-check-label" for="genre4">
-                        Action
-                    </label>
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Type</span>
+                    <input class="form-control border-secondary-subtle" name="genre" placeholder='e.g. "Strategy"' />
                 </div>
             </div>
         </div>
         @* RELEASE YEAR *@
-        <div class="d-flex flex-column text-start">
-            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">RELEASE YEAR</p>
-            <div class="p-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear1" checked>
-                    <label class="form-check-label" for="releaseYear1">
-                        2002
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear2">
-                    <label class="form-check-label" for="releaseYear2">
-                        2007
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear3">
-                    <label class="form-check-label" for="releaseYear3">
-                        2013
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear4">
-                    <label class="form-check-label" for="releaseYear4">
-                        2018
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="releaseYear" id="releaseYear5">
-                    <label class="form-check-label" for="genre4releaseYear5">
-                        2023
-                    </label>
-                </div>
-            </div>
-        </div>
-        @* PRICE RANGE *@
         <div class="d-flex flex-column">
-            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">PRICE RANGE</p>
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">RELEASE YEAR</p>
             <div class="p-2">
                 <div class="input-group">
                     <span class="input-group-text border-secondary-subtle">Min</span>
-                    <input class=" form-control border-secondary-subtle" name="min" placeholder="$1" />
+                    <input class="form-control border-secondary-subtle" name="releaseYearMin" type="number" placeholder="1958" />
                 </div>
                 <div class="input-group">
                     <span class="input-group-text border-secondary-subtle">Max</span>
-                    <input class=" form-control border-secondary-subtle" name="max" placeholder="$100" />
+                    <input class="form-control border-secondary-subtle" name="releaseYearMax" type="number" placeholder="2023" />
                 </div>
             </div>
         </div>
-        @* AGE RATING *@
-        <div class="d-flex flex-column text-start">
-            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">AGE RATING</p>
+        @* PRICE *@
+        <div class="d-flex flex-column">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">PRICE</p>
             <div class="p-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating1" checked>
-                    <label class="form-check-label" for="ageRating1">
-                        Everyone
-                    </label>
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Min</span>
+                    <input class="form-control border-secondary-subtle" name="priceMin" type="number" min="1" placeholder="$1" />
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating2">
-                    <label class="form-check-label" for="ageRating2">
-                        Everyone +10
-                    </label>
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Max</span>
+                    <input class="form-control border-secondary-subtle" name="priceMax" type="number" max="100" placeholder="$100" />
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating3">
-                    <label class="form-check-label" for="ageRating3">
-                        Teen
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating4">
-                    <label class="form-check-label" for="ageRating4">
-                        Mature
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="ageRating" id="ageRating5">
-                    <label class="form-check-label" for="ageRating5">
-                        Rating Pending
-                    </label>
+            </div>
+        </div>
+        @* AGE RANGE *@
+        <div class="d-flex flex-column">
+            <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">AGE RANGE</p>
+            <div class="p-2">
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Rating</span>
+                    <input class="form-control border-secondary-subtle" name="ageRange" placeholder='e.g. "Everyone"' />
                 </div>
             </div>
         </div>
         @* CONDITION *@
-        <div class="d-flex flex-column text-start">
+        <div class="d-flex flex-column">
             <p class="bg-light-subtle fw-bold shadow-lg mb-0 p-2">CONDITION</p>
             <div class="p-2">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="condition" id="condition1" checked>
-                    <label class="form-check-label" for="condition1">
-                        New
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="condition" id="condition2">
-                    <label class="form-check-label" for="condition2">
-                        Excellent
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="condition" id="condition3">
-                    <label class="form-check-label" for="condition3">
-                        Good
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="condition" id="condition4">
-                    <label class="form-check-label" for="condition4">
-                        Bad
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="condition" id="condition5">
-                    <label class="form-check-label" for="condition5">
-                        Open Box
-                    </label>
+                <div class="input-group">
+                    <span class="input-group-text border-secondary-subtle">Physical</span>
+                    <input class="form-control border-secondary-subtle" name="condition" placeholder='e.g. "Excellent"' />
                 </div>
             </div>
         </div>
-    </form>
-    <form class="overflow-auto w-100 my-5" method="post">
+    </div>
+    <div class="overflow-auto w-100 my-5">
         <h6 class="display-6 fw-bold text-light container mb-5">@ViewData["Title"]</h6>
         @* Search *@
         <div class="d-flex flex-column align-items-center container mb-5">
             <div class="d-flex flex-column gap-3 ms-auto">
-                <button class="btn btn-lg btn-secondary rounded-0 fw-bold" type="reset">RESET FILTERS</button>
+                <a class="btn btn-lg btn-secondary rounded-0 fw-bold" href="/shop">RESET FILTERS</a>
                 <a class="btn btn-lg btn-warning rounded-0 text-dark fw-bold" href="/shop/create">CREATE PRODUCT</a>
             </div>
             <div id="search" class="input-group mt-5">
-                <input class="form-control border-secondary-subtle" name="search" type="search" placeholder="Search games by title..." />
+                <input class="form-control border-secondary-subtle" name="search" type="search" placeholder="Search games by exact title..." />
                 <button class="input-group-text btn btn-lg btn-warning rounded-0 text-dark fw-bold" type="submit">SEARCH</button>
             </div>
         </div>
@@ -176,9 +82,10 @@
             @if (@Model != null) {
                 @foreach (var item in Model) {
                     <partial name="~/views/shop/card.cshtml" model="new Item {
+                        ItemId = item.ItemId,
                         InCart = item.InCart,
                         Title = item.Title,
-                        ItemId = item.ItemId,
+                        Genre = item.Genre,
                         ReleaseYear = @item.ReleaseYear,
                         Price =  @item.Price,
                         AgeRange = @item.AgeRange,
@@ -188,5 +95,5 @@
                 }
             }
         </div>
-    </form>
-</div>
+    </div>
+</form>

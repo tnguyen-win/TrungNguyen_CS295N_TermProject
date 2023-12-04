@@ -17,9 +17,10 @@
                     subTotal = subTotal + item.Price;
 
                     <partial name="~/views/shop/card.cshtml" model="new Item {
+                        ItemId = item.ItemId,
                         InCart = item.InCart,
                         Title = item.Title,
-                        ItemId = item.ItemId,
+                        Genre = item.Genre,
                         ReleaseYear = @item.ReleaseYear,
                         Price =  @item.Price,
                         AgeRange = @item.AgeRange,

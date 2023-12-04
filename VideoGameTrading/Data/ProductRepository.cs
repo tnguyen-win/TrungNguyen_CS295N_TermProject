@@ -21,11 +21,5 @@ namespace VideoGameTrading.Data {
 
             return context.SaveChanges();
         }
-
-        //public int UpdateItem(Item item) {
-        //    context.Update(item);
-
-        //    return context.SaveChanges();
-        //}
     }
 }

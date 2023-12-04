@@ -17,6 +17,7 @@ namespace VideoGameTrading {
 
                 var item1 = new Item {
                     From = user2,
+                    InCart = false,
                     Title = "A test title",
                     Genre = "Strategy",
                     ReleaseYear = 2001,
@@ -34,7 +35,7 @@ namespace VideoGameTrading {
                     ReleaseYear = 2017,
                     Price = Math.Round((double)(1 + (rnd2.NextDouble() * (100 - 1))), 2),
                     AgeRange = "Everyone +10",
-                    Condition = "TExcellent"
+                    Condition = "Excellent"
                 };
 
                 context.Items.Add(item2);
