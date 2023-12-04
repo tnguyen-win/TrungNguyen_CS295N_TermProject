@@ -14,7 +14,7 @@
                 @foreach (var item in Model) {
                     products += $"Product {item.ItemId} - ${item.Price.ToString()}\n\n";
                     products += item.Equals(Model.Last()) ? "====================" : "+\n\n";
-                    subTotal = subTotal + item.Price;
+                    subTotal =  Math.Round(subTotal + item.Price, 2);
 
                     <partial name="~/views/shop/card.cshtml" model="new Item {
                         ItemId = item.ItemId,
