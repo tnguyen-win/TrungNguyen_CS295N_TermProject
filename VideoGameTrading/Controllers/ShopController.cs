@@ -18,7 +18,7 @@ namespace VideoGameTrading.Controllers {
         }
 
         [HttpPost]
-        public IActionResult Index(string search, string genre, int releaseYearMin, int releaseYearMax, int priceMin, int priceMax, string ageRange, string condition) {
+        public IActionResult Index(string search, string genre, int releaseYearMin, int releaseYearMax, int priceMin, int priceMax, string ageRange, string condition, string author) {
             List<Item> items = (from i in repository.GetItems() select i).ToList();
 
             var matchSearch = false;
@@ -27,6 +27,7 @@ namespace VideoGameTrading.Controllers {
             var matchPrice = false;
             var matchAgeRange = false;
             var matchCondition = false;
+            var matchAuthor = false;
 
             foreach (var i in repository.GetItems()) {
                 if (i.Title == search) {
@@ -53,14 +54,18 @@ namespace VideoGameTrading.Controllers {
                     items.Clear();
                     matchCondition = true;
                 }
+                if (i.From.Name == author) {
+                    items.Clear();
+                    matchAuthor = true;
+                }
             }
 
             // Search
 
             if (matchSearch) {
                 var ITEMS = (from i in repository.GetItems()
-                         where i.Title == search
-                         select i).ToList();
+                             where i.Title == search
+                             select i).ToList();
 
                 foreach (var I in ITEMS) items.Add(I);
             }
@@ -79,8 +84,8 @@ namespace VideoGameTrading.Controllers {
 
             if (matchReleaseYear) {
                 var ITEMS = (from i in repository.GetItems()
-                         where i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax
-                         select i).ToList();
+                             where i.ReleaseYear >= releaseYearMin & i.ReleaseYear <= releaseYearMax
+                             select i).ToList();
 
                 foreach (var I in ITEMS) items.Add(I);
             }
@@ -89,8 +94,8 @@ namespace VideoGameTrading.Controllers {
 
             if (matchPrice) {
                 var ITEMS = (from i in repository.GetItems()
-                         where i.Price >= priceMin & i.Price <= priceMax
-                         select i).ToList();
+                             where i.Price >= priceMin & i.Price <= priceMax
+                             select i).ToList();
 
                 foreach (var I in ITEMS) items.Add(I);
             }
@@ -99,8 +104,8 @@ namespace VideoGameTrading.Controllers {
 
             if (matchAgeRange) {
                 var ITEMS = (from i in repository.GetItems()
-                         where i.AgeRange == ageRange
-                         select i).ToList();
+                             where i.AgeRange == ageRange
+                             select i).ToList();
 
                 foreach (var I in ITEMS) items.Add(I);
             }
@@ -115,7 +120,17 @@ namespace VideoGameTrading.Controllers {
                 foreach (var I in ITEMS) items.Add(I);
             }
 
-            return View("index", items.OrderBy(i => i.ItemId).ToList());
+            // Author
+
+            if (matchAuthor) {
+                var ITEMS = (from i in repository.GetItems()
+                             where i.From.Name == author
+                             select i).ToList();
+
+                foreach (var I in ITEMS) items.Add(I);
+            }
+
+            return View("index", items.OrderBy(i => i.ItemId).Distinct().ToList());
         }
 
         // Product
